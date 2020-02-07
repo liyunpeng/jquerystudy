@@ -1,0 +1,129 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<head>
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        function appendText() {
+            var txt1 = "<p>Text.</p>";              // 以 HTML 创建新元素
+            var txt2 = $("<p></p>").text("Text.");  // 以 jQuery 创建新元素
+            var txt3 = document.createElement("p");
+            txt3.innerHTML = "Text.";               // 通过 DOM 来创建文本
+            $("body").append(txt1, txt2, txt3);        // 追加新元素
+        }
+
+        $(document).ready(function () {
+            $("p").click(function () {
+                $(this).hide();
+            });
+
+            $("#btn1").click(function () {
+                $("#test1").text("Hello world!");
+            });
+            $("#btn2").click(function () {
+                $("#test2").html("<b>Hello world!</b>");
+            });
+            $("#btn3").click(function () {
+                $("#test3").val("Dolly Duck");
+            });
+
+            $("#btn1").click(function () {
+                $("img").before("<b>Before</b>");
+            });
+
+            $("#btn2").click(function () {
+                $("img").after("<i>After</i>");
+            });
+
+
+            function funa() {
+            };
+
+
+            class Class01 {
+            };
+
+            var a = {
+                mem1: new Class01(),
+
+            }；
+  console.log('a.mem1:' + a.mem1);
+
+            var myMap = new Map();
+
+
+            myMap.set('cityName', 'map');
+            myMap.set('cityPopulation', 'map11111111');
+
+
+            myMap.forEach(function (value, key) {
+                console.log(key + ' = ' + value);
+            });
+
+            //$('#test1').val(a.mem1);
+
+
+            var myMap = {};
+
+
+//塞入键值对
+            myMap['cityName'] = 'array{}';
+            myMap['cityPopulation'] = 111111111;
+
+//遍历
+            for (var key in myMap) {
+                console.log(key + ' = ' + myMap[key]);
+            }
+
+
+        });
+
+        function frush(){
+
+            var html = $("div #nf").html();
+            alert(html);
+            $("div #nf").remove();  //移出,避免重复添加.
+
+            var ss = "<ul id='nf'>";
+            var ss2 = "<li><a href='#'>2013款</a>";
+            var ss3 = "<li><a href='#'>2014款</a></li>";
+            var ss4 = "</ul>";
+            var ss5 = ss+ss2+ss3+ss4;
+
+            /**写成下面这样,找不到id=nf对象,导致无法remove,重复添加~! huangjing 140110**/
+            /*$("#pp").append(ss);
+            $("#pp").append(ss2);
+            $("#pp").append(ss3);
+            $("#pp").append(ss4);*/
+
+            $("#pp").append(ss5);
+
+        }
+    </script>
+</head>
+
+<body>
+<div>
+    <ul>
+        <li id="pp"><a href="#" name="lifan" onclick="frush();" >力帆</a></li>
+    </ul>
+</div>
+
+<p>If you click on me, I will disappear.</p>
+
+<p id="test1">这是段落。</p>
+<p id="test2">这是另一个段落。</p>
+<p>Input field: <input type="text" id="test3" value="Mickey Mouse"></p>
+<button id="btn1">设置文本</button>
+<button id="btn2">设置 HTML</button>
+<button id="btn3">设置值</button>
+
+<p>This is a paragraph.</p>
+<button onclick="appendText()">追加文本</button>
+
+
+<button id="btn1">在图片前面添加文本</button>
+<button id="btn2">在图片后面添加文本</button>
+
+</body>
+
+</html>

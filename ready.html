@@ -1,0 +1,27 @@
+
+<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        //var v1 = $("<div class='win_box'><b>Hello world!</b></div>");
+        var v1 = $("<b>Hello world!</b>");
+        $("#buttonAdd").click(function(){
+
+            $("p").append(v1);
+            //$("p").append("<b>Hello world!</b>");
+        });
+
+        $("#buttonRemove").click(function(){
+            //$('.win_box').remove();
+            v1.remove();
+        });
+
+    });
+</script>
+</head>
+<body>
+<p>This is a paragraph.</p>
+<button id="buttonAdd">add</button>
+<button id="buttonRemove">remove</button>
+
+</body>
+</html>
